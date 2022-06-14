@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const House = require("../models/houses.route")
+const House = require("../models/House.model")
 
 //get all houses//
 router.get("/", async (req, res, next) => {
@@ -25,7 +25,7 @@ router.get("/:id", async (req, res, next) => {
 //user can post a house //
 router.post("/", async (req, res, next) => {
   try {
-    console.log(req.body)
+    console.log('--> post', req.body)
     const ans = await House.create(req.body)
     res.status(201).json(ans)
   } catch (err) {
