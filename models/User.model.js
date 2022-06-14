@@ -1,16 +1,23 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, SchemaTypes } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
-    username: {
-      type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+    username: { type: String, required: true },
+    password: {type: String, required: true },
+    email: {type: String, required: true },
+    firstname: String,
+    lastname: String,
+    address: {
+      number: Number,
+      street: String,
+      zipCode: Number,
+      country: String
     },
-    password: String,
+    ownedHouses: [{ type: SchemaTypes.ObjectId, ref: "House"}],
+    openToEveryPropositions: {type :  Boolean, required:true}
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );
