@@ -15,7 +15,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     console.log(req.params.id)
-    const ans = await House.findById(req.params.id).populate("id")
+    const ans = await House.findById(req.params.id)
     res.status(200).json(ans)
   } catch (err) {
     next(404)
