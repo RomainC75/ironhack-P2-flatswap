@@ -1,5 +1,6 @@
 const router = require("express").Router()
 const House = require("../models/House.model")
+const { validateHouseNumber } = require("../utils/validation")
 
 //get all houses//
 router.get("/", async (req, res, next) => {
@@ -7,7 +8,7 @@ router.get("/", async (req, res, next) => {
     const houses = await House.find()
     res.status(200).json(houses)
   } catch (err) {
-    next(404)
+    next(err)
   }
 })
 
@@ -25,11 +26,15 @@ router.get("/:id", async (req, res, next) => {
 //user can post a house //
 router.post("/", async (req, res, next) => {
   try {
-    console.log('--> post', req.body)
-    const ans = await House.create(req.body)
-    res.status(201).json(ans)
+    console.log("--> post", req.body)
+    const validateHouseNumber = validateHouseNumber(req.body, res)
+    if (valideHouseNumber) {
+      res.send("ok, going to create a house !")
+      const ans = await House.create(req.body)
+      res.status(201).json(ans)
+    }
   } catch (err) {
-    next(404)
+    next(err)
   }
 })
 
@@ -37,21 +42,23 @@ router.post("/", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     console.log(req.params.id)
-    const ans = await Movie.findByIdAndDelete(req.params.id)
+    const ans = await House.findByIdAndDelete(req.params.id)
     res.status(201).json(ans)
   } catch (err) {
-    next(404)
+    next(err)
   }
 })
 
 //user can update details for one of his houses//
-router.post("/houses/:id", async (req, res, next) => {
+router.patch("/:id", async (req, res, next) => {
+  console.log(req.body)
   try {
     const houseId = req.params.id
+    console.log(houseId)
     const findHouse = await House.findByIdAndUpdate(houseId, req.body, {
       new: true,
     })
-    res.status(200).res.json(findHouse)
+    res.status(200).json(findHouse)
   } catch (error) {
     next(error)
   }
