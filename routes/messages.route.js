@@ -15,7 +15,7 @@ router.get('/',authentication, async (req,res,next)=>{
                     {senderId: mongoose.Types.ObjectId(req.body.contactId) } ,{receiverId: req.user._id} 
                 ]} 
             ]
-        }).select({senderId:1,createdAt:1,content:1})
+        }).select({senderId:1,createdAt:1,content:1}).sort({createdAt:1})
         res.status(200).json(ans)
     }catch(e){
         next(e)
