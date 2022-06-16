@@ -1,64 +1,210 @@
 const houses = [
-    {
-        category: "mansion",
-        images: [
-            'https://a0.muscache.com/im/pictures/miso/Hosting-49227437/original/5b50ac57-8eca-4b8b-be51-43a7155ed37a.jpeg?im_w=720',
-            'https://a0.muscache.com/im/pictures/miso/Hosting-49227437/original/df072e91-5a50-4c04-ac97-80aad69ec55d.jpeg?im_w=720'
-        ],
-        roomsQty: 3,
-        bedroomsQty: 2,
-        bathroom: {
-            quantity: 1,
-            bathtub: true,
-            shower: true,
-        },
-        equipped_kitchen: 1,
-        garden: false,
-        pool: false,
-        surface: 90,
-        pet_friendly: true,
+  {
+    category: "house",
+    images: [
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m2021761161od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m1437361062od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m4018046870od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m915634980od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m1099231274od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m3503403126od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m2275819736od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m2820676218od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m688561602od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m2622498097od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m3965645411od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m2701686332od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m210187805od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/1571e83324a1fc3a2cd6c28f80b0fc59l-m3047394137od-w1024_h768_x2.webp",
+    ],
+    roomsQty: 3,
+    bedroomsQty: 4,
+    bathroom: {
+      quantity: 3,
+      bathtub: true,
+      shower: true,
+    },
+    equipped_kitchen: 1,
+    garden: true,
+    pool: false,
+    surface: 390,
+    pet_friendly: true,
 
-        presentation: 'beautiful dream island ! ',
-        adress: {
-            street_name: 'beach avenue',
-            street_number: 1,
-            city: "Nouméa",
-            country: "Nouvelle Calédonie",
-        },
-        available_period: [[new Date("2022-11-20T12:05:45"), new Date("2022-11-23T12:05:45")]],
-        fixed_period: true,
-    },{
-        category: "flat",
-        images: [
-            'https://a0.muscache.com/im/pictures/e25f5610-ec9d-437f-90fb-139a3fc56029.jpg?im_w=720',
-            'https://a0.muscache.com/im/pictures/ede18a6b-ec38-4f6d-9b23-a40129223529.jpg?im_w=720'
-        ],
-        roomsQty: 2,
-        bedroomsQty: 1,
-        bathroom: {
-            quantity: 1,
-            bathtub: true,
-            shower: true,
-        },
-        equipped_kitchen: 1,
-        garden: true,
-        pool: false,
-        surface: 30,
-        pet_friendly: true,
+    presentation:
+      "Nestled in a serene aspen grove and surrounded by mature evergreens, this luxurious private mountain estate on one of Mountain Valley's largest lots has spectacular panoramic views spanning across the Roaring Fork Valley with awe-inspiring sunsets. Floor-to-ceiling windows in the living area and large sliding glass doors open to a spacious flagstone patio that overlooks a landscaped yard, Aspen mountain and North Star Preserve. Open living area with high ceilings, a wine cellar, and chef's kitchen with Viking stove and two Sub-Zero refrigerators make this home perfect for entertaining.",
+    adress: {
+      street_name: "Mountain Laurel Dr",
+      street_number: 176,
+      city: "Aspen",
+      country: "United States",
+    },
+    available_period: [
+      [new Date("2022-09-20T12:05:45"), new Date("2023-11-23T12:05:45")],
+    ],
+    fixed_period: false,
+  },
+  {
+    category: "house",
+    images: [
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m628604849od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m4151442645od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m2256780423od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m1855270204od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m209582460od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m866178669od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m3166288206od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m1293937664od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m633180392od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m1697053675od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m250761579od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m299895740od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/6e63728a159f529bbd02e269d9d38f41l-m1577420212od-w1024_h768_x2.webp",
+    ],
+    roomsQty: 2,
+    bedroomsQty: 1,
+    bathroom: {
+      quantity: 1,
+      bathtub: true,
+      shower: true,
+    },
+    equipped_kitchen: 1,
+    garden: true,
+    pool: false,
+    surface: 30,
+    pet_friendly: true,
 
-        presentation: 'nice vue ! ',
-        adress: {
-            street_name: 'Don Miguel',
-            street_number: 1,
-            city: "San Paolo",
-            country: "Brasil",
-        },
-        available_period: [
-            [new Date("2022-01-20T12:05:45"), new Date("2021-01-22T12:05:45")],
-            [new Date("2022-06-01T12:05:45"), new Date("2021-06-03T12:05:45")]
-        ],
-        fixed_period: true,
-    }
+    presentation:
+      "With your first step in the front door, you feel a sense of both awe and comfort. Located along a wooded ridge just minutes from downtown Seattle, this AIA Award-Winning custom home strikes a harmonious balance between city and nature. A theme of minimal simplicity is maintained throughout. Sweeping views are captured in refined spaces composed of simple planes and a palette of wood, steel, and glass. The home is both dramatic and intimate, inspiring and calming. Enjoy outdoor entertaining on the patio that is sheltered by the house itself. Terraced gardens of fruit trees, berries, and grape vines invite you to spend time outdoors. With the bridge reopening soon, your commute will be a dream. Live the lush life in West Seattle.",
+    adress: {
+      street_name: " 21st Ave SW",
+      street_number: 4135,
+      city: "Seattle",
+      country: "United States",
+    },
+    available_period: [
+      [new Date("2022-01-20T12:05:45"), new Date("2021-01-22T12:05:45")],
+      [new Date("2022-06-01T12:05:45"), new Date("2021-06-03T12:05:45")],
+    ],
+    fixed_period: true,
+  },
+  {
+    category: "mansion",
+    images: [
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m3582227883od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m1645331505od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m797723480od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m3317928527od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m1909638875od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m462221014od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/2dd2445a57b606c0d340187f9120e869l-m1626215172od-w1024_h768_x2.webp",
+    ],
+    roomsQty: 6,
+    bedroomsQty: 6,
+    bathroom: {
+      quantity: 5,
+      bathtub: true,
+      shower: true,
+    },
+    equipped_kitchen: 2,
+    garden: true,
+    pool: true,
+    surface: 490,
+    pet_friendly: true,
+
+    presentation:
+      "Welcome to Casa Poinciana. You'll feel you've arrived at your own private resort in this spectacular newly-constructed Bay Point Modern Tropical pool home compound. With clean sleek elegant lines and cool shape design, this designer masterpiece delivers paramount luxurious living with over 6, 700+ SF of interiors and extensive covered entertainment terraces wrapped around the sparkling 54.5-foot pool, summer kitchen and courtyard. Spacious and serene with flowing living, dining, grand media room; 10 ft ceilings; luminous window walls throughout; beautiful gourmet chef's kitchen with 13 ft eat-in island; separate breakfast room; a huge main suite retreat with enormous walk-in closet, spa-like bath and hammered copper soaking tub; plus abundant parking. Welcome to your own private oasis! ",
+    adress: {
+      street_name: "Bay Point Rd",
+      street_number: 4550,
+      city: "Miami",
+      country: "United states",
+    },
+    available_period: [
+      [new Date("2022-07-20T12:05:45"), new Date("2023-12-23T12:05:45")],
+    ],
+    fixed_period: true,
+  },
+  {
+    category: "flat",
+    images: [
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m4249628407od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m332092803od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m2291054549od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m4148762051od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m1211624873od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m113919953od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m1886393545od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/362974789984e1d38893754a3b507138l-m2291054549od-w1024_h768_x2.webp",
+    ],
+    roomsQty: 2,
+    bedroomsQty: 1,
+    bathroom: {
+      quantity: 1,
+      bathtub: false,
+      shower: true,
+    },
+    equipped_kitchen: 1,
+    garden: false,
+    pool: true,
+    surface: 50,
+    pet_friendly: true,
+
+    presentation:
+      "Breezy and bright one bedroom/one bath unit with great Ala Wai Canal, mountain, park, and McCully Bridge views. New paint and new vinyl flooring. Central AC. New tile on the lanai. Washer and dryer community laundry room right next door to the unit. Pool at the Upper Lobby. Close to shopping, restaurants, and Ala Moana Shopping Center. Bus system also close by",
+    adress: {
+      street_name: "Ala Wai Blvd Apt 503",
+      street_number: 1909,
+      city: "Honolulu,",
+      country: "United states",
+    },
+    available_period: [
+      [new Date("2022-07-20T12:05:45"), new Date("2022-12-23T12:05:45")],
+    ],
+    fixed_period: true,
+  },
+  {
+    category: "flat",
+    images: [
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m795945700od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m1215800726od-w1024_h768_x2.webp,",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m812324871od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m2698490211od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m1864530423od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m149125095od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m3076021373od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m4064766793od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m474705985od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m1314749316od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m1961045922od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m2752656406od-w1024_h768_x2.webp",
+      "https://ap.rdcpix.com/5bcce94c33acbf5cbbbb4da3cea32e8bl-m3598580082od-w1024_h768_x2.webp",
+    ],
+    roomsQty: 5,
+    bedroomsQty: 2,
+    bathroom: {
+      quantity: 2,
+      bathtub: true,
+      shower: true,
+    },
+    equipped_kitchen: 1,
+    garden: true,
+    pool: true,
+    surface: 290,
+    pet_friendly: true,
+
+    presentation:
+      "Mint condition and very stylish complete remodel on top floor, north facing over looking the river. Master bedroom with vaulted ceilings, Dual-wing bedroom layout for privacy. Underground, gated, garaged parking. Upgrades include all new windows and sliding door, bathrooms, kitchen, flooring, built in cabinets, custom closet organizers in both rooms, recessed lighting, ceiling fans and much more. full size Washer & Dryer, FHA/VA approved! Tandem parking space is the first space directly next to the elevator closest to the garage entrance. There are also ample parking spaces designated/marked for guests. Resort style living with a large pool and fitness room.",
+    adress: {
+      street_name: "Camino De La Reina Unit 334",
+      street_number: 510,
+      city: "San Diego",
+      country: "United States",
+    },
+    available_period: [
+      [new Date("2022-09-20T12:05:45"), new Date("2023-11-23T12:05:45")],
+    ],
+    fixed_period: false,
+  },
 ]
 
-module.exports=houses
+module.exports = houses

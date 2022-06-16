@@ -25,7 +25,7 @@ router.get("/:id", async (req, res, next) => {
     const ans = await House.findById(req.params.id)
     res.status(200).json(ans)
   } catch (err) {
-    next(404)
+    next(err)
   }
 })
 
