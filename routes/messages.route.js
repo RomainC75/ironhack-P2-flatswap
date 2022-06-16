@@ -5,6 +5,7 @@ const Message = require('../models/Message.model')
 const mongoose = require('mongoose')
 
 router.get('/',authentication, async (req,res,next)=>{
+    console.log('-->message:',req.body)
     try{
         const ans= await Message.find({
             $or:[ 
@@ -24,7 +25,9 @@ router.get('/',authentication, async (req,res,next)=>{
 
 router.post('/',authentication ,async (req,res,next) => {
     try{
-        if( req.body.senderId && req.body.receiverId && req.body.content && req.body.senderId === req.user._id.toString() && req.body.content.length>0){
+        if(req.user._id.toString()!=req.body.senderId){
+            res.status(400).json({message:"senderId is not valid !"})
+        }else if( req.body.senderId && req.body.receiverId && req.body.content && req.body.senderId === req.user._id.toString() && req.body.content.length>0){
             const receiver = await User.findById(req.body.receiverId)
             // test if receiver is ok to get new messages ! 
             if( receiver ){
