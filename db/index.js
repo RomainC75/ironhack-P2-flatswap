@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/Ironhack-P2-flatswap";
 
+
 mongoose
   .connect(MONGO_URI)
   .then((x) => {
