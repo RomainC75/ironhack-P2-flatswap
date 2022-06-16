@@ -1,19 +1,19 @@
 //this function will prevent user to input wrong data type in some field//
 function validateHouseNumber(body, res) {
   let valid = true
-  if (body.roomsQty === "" || isNaN(parseInt(body.roomsQty))) {
+  if (body.roomsQty === "" || isNaN(Number(body.roomsQty))) {
     res.status(400).json({
-      message: `Received "${body.roomsQty}", but expected a number.`,
+      message: `Received "${body.roomsQty}", but expected a number in roomsQty.`,
     })
     return (valid = false)
-  } else if (body.bedroomQty === "" || isNaN(parseInt(body.bedroomQty))) {
+  } else if (body.bedroomsQty === "" || isNaN(Number(body.bedroomsQty))) {
     res.status(400).json({
-      message: `Received "${body.bedroomQty}", but expected a number.`,
+      message: `Received "${body.bedroomQty}", but expected a number in bedroomQty.`,
     })
     return (valid = false)
-  } else if (body.surface === "" || isNaN(parseInt(body.surface))) {
+  } else if (body.surface === "" || isNaN(Number(body.surface))) {
     res.status(400).json({
-      message: `Received "${body.surface}", but expected a number.`,
+      message: `Received "${body.surface}", but expected a number in surface.`,
     })
     return (valid = false)
   }
@@ -23,7 +23,7 @@ function validateHouseNumber(body, res) {
 
 function validateString(body, res) {
   let valid = true
-  if (body.street_name === "") {
+  if (body.street_name === "" ) {
     res.status(400).json({
       message: `Received street_name : "${body.street_name}", but expected a string.`,
     })
