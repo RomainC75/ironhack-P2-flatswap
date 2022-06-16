@@ -5,10 +5,15 @@ const { validateHouseNumber } = require("../utils/housePostValidation")
 const authentication = require('../middleware/authentication.mid')
 
 //get all houses//
-router.get("/", authentication,async (req, res, next) => {
+router.get("/",async (req, res, next) => {
   try {
-    const houses = await House.find()
-    res.status(200).json(houses)
+    if(Object.keys(req.query).length===0){
+      const houses = await House.find().sort( {"adress.country":1} )
+      res.status(200).json(houses)
+    }else{
+      const houses = await House.find({'adress.country':req.query.country}).sort( {"adress.country":1} )
+      res.status(200).json(houses)
+    }
   } catch (err) {
     next(err)
   }
@@ -17,7 +22,6 @@ router.get("/", authentication,async (req, res, next) => {
 //Get the house with id//
 router.get("/:id", async (req, res, next) => {
   try {
-    console.log(req.params.id)
     const ans = await House.findById(req.params.id)
     res.status(200).json(ans)
   } catch (err) {
@@ -25,13 +29,13 @@ router.get("/:id", async (req, res, next) => {
   }
 })
 
-//user can post a house //
+//user can post a house 
 router.post("/", authentication, async (req, res, next) => {
   try {
-    console.log("--> post", req.body)
     const isValidated = validateHouseNumber(req.body, res)
     if (isValidated) {
       const createdHouse = await House.create(req.body)
+      const ans = await User.findByIdAndUpdate(req.user._id,{ $push:{ ownedHouses:createdHouse._id } })
       res.status(201).json(createdHouse)
     }
   } catch (err) {
@@ -39,16 +43,20 @@ router.post("/", authentication, async (req, res, next) => {
   }
 })
 
-//user can update details for one of his houses//
-router.patch("/:id", async (req, res, next) => {
-  console.log(req.body)
+//user can update details for one of his houses
+router.put("/:id", authentication, async (req, res, next) => {
   try {
     const houseId = req.params.id
-    console.log(houseId)
-    const findHouse = await House.findByIdAndUpdate(houseId, req.body, {
-      new: true,
-    })
-    res.status(200).json(findHouse)
+    const actualUser = await User.findById(req.user._id)
+    if( req.user.accessLevel === 'admin' || actualUser.ownedHouses.includes(req.params.id) ){
+      const findHouse = await House.findByIdAndUpdate(houseId, req.body, {
+        new: true,
+      })
+      res.status(200).json(findHouse)
+    }else{
+      res.status(400).json({message:"unauthorized !"})
+    }
+    
   } catch (error) {
     next(error)
   }
@@ -57,12 +65,11 @@ router.patch("/:id", async (req, res, next) => {
 //user can delete a house from his profile//
 router.delete("/:id", authentication, async (req, res, next) => {
   try {
-    console.log(req.params.id)
     const actualUser = await User.findById(req.user._id)
     //req.user._id.toString() === message.senderId.toString()
-    console.log('-->',actualUser)
-    if(req.user.accessLevel === 'admin' || actualUser.ownedHouses.includes(req.user._id.toString())){
-      //const ans = await House.findByIdAndDelete(req.params.id)
+    if(req.user.accessLevel === 'admin' || actualUser.ownedHouses.includes(req.params.id)){
+      const ans = await House.findByIdAndDelete( req.params.id )
+      const modifiedUser = await User.findByIdAndUpdate( req.user._id , { $pull: {ownedHouses:req.params.id} } , {new:true} )
       res.status(201).json(ans)
     }else{
       res.status(400).json({message:"unauthorized!"})

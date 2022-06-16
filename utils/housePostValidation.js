@@ -17,7 +17,6 @@ function validateHouseNumber(body, res) {
     })
     return (valid = false)
   }
-
   return valid
 }
 
